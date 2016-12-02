@@ -1,32 +1,22 @@
-var con = require('../connection').connection;
+var db = require('../connection').db;
+var styles = db.collection("styles");
 
 module.exports = 
 {
-	getAll: function (request, response) {
-		con.query('SELECT * FROM Style', function (err, results, fields) {
-  			response.end(JSON.stringify(results));
-  		});
-	},
+  getAll: function (request, response) {
+    styles.find(function (err, docs) {
+      response.end(JSON.stringify(docs));
+    });
+  },
 
-	getOne: function(request, response) {
-		con.query('SELECT * FROM Style where styleId = ?', [request.params.id], 
-    		function (err, results, fields) {
-     			 response.end(JSON.stringify(results));
-  			});
-	},
+  getOne: function(request, response) {
+    styles.find({"styleName" : request.params.name}, function (err, docs) {
+      response.end(JSON.stringify(docs[0]));
+    });
+  },
 
-	insert: function(request, response) {
-    if(!request.body.styleName) {
-      console.log('styleName not found in body: ' + JSON.stringify(request.body));
-    }
-    else {
-  		con.execute('insert into Style(styleName) values(?);', [request.body.styleName],
-      		function(err, results, fields){
-      			if(err)
-        				console.log(err);
-       		});
-    }
-
-    response.end();
-	}
+  insert: function(request, response) {
+    styles.update({"styleName" : {$exists : true}}, request.body, {upsert : true});
+      response.end();
+  }
 }

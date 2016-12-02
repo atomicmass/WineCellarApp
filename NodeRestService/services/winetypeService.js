@@ -1,32 +1,22 @@
-var con = require('../connection').connection;
+var db = require('../connection').db;
+var wineTypes = db.collection("wineTypes");
 
 module.exports = 
 {
-	getAll: function (request, response) {
-		con.query('SELECT * FROM WineType', function (err, results, fields) {
-  			response.end(JSON.stringify(results));
-  		});
-	},
+  getAll: function (request, response) {
+    wineTypes.find(function (err, docs) {
+      response.end(JSON.stringify(docs));
+    });
+  },
 
-	getOne: function(request, response) {
-		con.query('SELECT * FROM WineType where wineTypeId = ?', [request.params.id], 
-    		function (err, results, fields) {
-     			 response.end(JSON.stringify(results));
-  			});
-	},
+  getOne: function(request, response) {
+    wineTypes.find({"wineTypeName" : request.params.name}, function (err, docs) {
+      response.end(JSON.stringify(docs[0]));
+    });
+  },
 
-	insert: function(request, response) {
-    if(!request.body.wineTypeName) {
-      console.log('wineTypeName not found in body: ' + JSON.stringify(request.body));
-    }
-    else {
-  		con.execute('insert into WineType(wineTypeName) values(?);', [request.body.wineTypeName],
-      		function(err, results, fields){
-      			if(err)
-        				console.log(err);
-       		});
-    }
-
-    response.end();
-	}
+  insert: function(request, response) {
+    wineTypes.update({"wineTypeName" : {$exists : true}}, request.body, {upsert : true});
+      response.end();
+  }
 }

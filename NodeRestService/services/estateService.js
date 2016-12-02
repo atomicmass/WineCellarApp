@@ -1,32 +1,22 @@
-var con = require('../connection').connection;
+var db = require('../connection').db;
+var estates = db.collection("estates");
 
 module.exports = 
 {
 	getAll: function (request, response) {
-		con.query('SELECT * FROM Estate', function (err, results, fields) {
-  			response.end(JSON.stringify(results));
-  		});
+		estates.find(function (err, docs) {
+			response.end(JSON.stringify(docs));
+		});
 	},
 
 	getOne: function(request, response) {
-		con.query('SELECT * FROM Estate where estateId = ?', [request.params.id], 
-    		function (err, results, fields) {
-     			 response.end(JSON.stringify(results));
-  			});
+		estates.find({"estateName" : request.params.name}, function (err, docs) {
+			response.end(JSON.stringify(docs[0]));
+		});
 	},
 
 	insert: function(request, response) {
-	    if(!request.body.estateName) {
-	      console.log('estateName not found in body: ' + JSON.stringify(request.body));
-	    }
-	    else {
-	  		con.execute('insert into Estate(estateName) values(?);', [request.body.estateName],
-	      		function(err, results, fields){
-	      			if(err)
-	        				console.log(err);
-	       		});
-	    }
-
+		estates.update({"estateName" : {$exists : true}}, request.body, {upsert : true});
 	    response.end();
 	}
 }

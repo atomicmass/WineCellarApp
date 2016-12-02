@@ -19,22 +19,22 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 //Estate routes
 app.get('/estate', estate.getAll);
-app.get('/estate/:id', estate.getOne);
+app.get('/estate/:name', estate.getOne);
 app.post('/estate', estate.insert);
 
 //Style routes
 app.get('/style', style.getAll);
-app.get('/style/:id', style.getOne);
+app.get('/style/:name', style.getOne);
 app.post('/style', style.insert);
 
 //Winetype routes
 app.get('/winetype', winetype.getAll);
-app.get('/winetype/:id', winetype.getOne);
+app.get('/winetype/:name', winetype.getOne);
 app.post('/winetype', winetype.insert);
 
 //Wine routes
 app.get('/wine', wine.getAll);
-app.get('/wine/:id', wine.getOne);
+app.get('/wine/:name', wine.getOne);
 app.post('/wine', wine.insert);
 
 
