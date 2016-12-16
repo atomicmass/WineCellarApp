@@ -16,7 +16,10 @@ module.exports =
   },
 
   insert: function(request, response) {
-    wines.update({"wineName" : {$exists : true}}, request.body, {upsert : true});
-      response.end();
+    wines.save(request.body, {}, function (err, docs) {
+      console.log(err);
+    });
+
+    response.end();
   }
 }

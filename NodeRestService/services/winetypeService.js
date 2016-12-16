@@ -15,8 +15,11 @@ module.exports =
     });
   },
 
-  insert: function(request, response) {
-    wineTypes.update({"wineTypeName" : {$exists : true}}, request.body, {upsert : true});
-      response.end();
+    insert: function(request, response) {
+      wineTypes.save(request.body, {}, function (err, docs) {
+        console.log(err);
+    });
+
+    response.end();
   }
 }

@@ -16,7 +16,10 @@ module.exports =
 	},
 
 	insert: function(request, response) {
-		estates.update({"estateName" : {$exists : true}}, request.body, {upsert : true});
-	    response.end();
-	}
+    	estates.save(request.body, {}, function (err, docs) {
+      		console.log(err);
+    	});
+
+    response.end();
+  }
 }
