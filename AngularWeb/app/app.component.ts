@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Wine } from './wine';
-
-const WINES : Wine[] = [{"_id":"5841164d9ad1b3cb44f8b9ef","estate":{"_id":"58400f4023834844681ca0f3","estateName":"Altydgedacht"},"wineType":{"_id":"58402f9d9ad1b3cb44f8b84f","wineTypeName":"Red"},"style":{"_id":"58402fae9ad1b3cb44f8b855","styleName":"Shiraz"},"wineName":"Shiraz","vintage":2015,"rating":8,"description":"Nice","quantity":0},{"_id":"58529890fe7915230cb41d4b","estate":{"_id":"58400f4023834844681ca0f3","estateName":"Altydgedacht"},"wineType":{"_id":"58402f9d9ad1b3cb44f8b84f","wineTypeName":"Red"},"style":{"_id":"58402fae9ad1b3cb44f8b855","styleName":"Shiraz"},"wineName":"Merlot","vintage":2015,"rating":8,"description":"Nice","quantity":0}];
+import { WineService } from './wine.service';
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -67,19 +67,29 @@ const WINES : Wine[] = [{"_id":"5841164d9ad1b3cb44f8b9ef","estate":{"_id":"58400
       margin-right: .8em;
       border-radius: 4px 0 0 4px;
     }
-  `]
+  `],
+  providers: [WineService]
 })
 
 
 
-export class AppComponent  { 
-	wines = WINES;
-	
-	wine: Wine = {"_id":"5841164d9ad1b3cb44f8b9ef","estate":{"_id":"58400f4023834844681ca0f3","estateName":"Altydgedacht"},"wineType":{"_id":"58402f9d9ad1b3cb44f8b84f","wineTypeName":"Red"},"style":{"_id":"58402fae9ad1b3cb44f8b855","styleName":"Shiraz"},"wineName":"Pinot","vintage":2016,"rating":8,"description":"Nice","quantity":0};
-
+export class AppComponent implements OnInit { 
+	wines: Wine[];
+	wine: Wine;
 	selectedWine: Wine;
 
+	constructor(private wineService: WineService) { }
+
+	ngOnInit(): void {
+		this.getWines();
+  	}
+
   	onSelect(wine: Wine): void {
-    this.selectedWine = wine;
-  }
+    	this.selectedWine = wine;
+  	}
+
+  	getWines() : void {
+  		this.wineService.getWines()
+  			.then(wines => this.wines = wines);
+  	}
 }
