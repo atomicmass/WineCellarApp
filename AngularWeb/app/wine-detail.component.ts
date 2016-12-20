@@ -1,39 +1,35 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Params }   from '@angular/router';
+import { Location }                 from '@angular/common';
+
+import 'rxjs/add/operator/switchMap';
+
 import { Wine } from './wine';
+import { WineService } from './wine.service';
 
 @Component({
-  selector: 'wine-detail',
-  template: `
-  <div *ngIf="wine">
-		<h2>{{wine.estate.estateName}} {{wine.wineName}} {{wine.vintage}}</h2>
-		<div>
-			<label>Name:</label>
-			<input [(ngModel)]="wine.wineName" placeholder="wine name"/>
-		</div>
-		<div>
-			<label>Estate: </label>
-			<input [(ngModel)]="wine.estate.estateName" placeholder="estate name"/>
-		</div>
-		<div>
-			<label>Type: </label>
-			<input [(ngModel)]="wine.wineType.wineTypeName" placeholder="type"/>
-		</div>
-		<div>
-			<label>Vintage: </label>
-			<input [(ngModel)]="vintage" placeholder="vintage"/>
-		</div>
-		<div>
-			<label>Description: </label>
-			<input [(ngModel)]="wine.description" placeholder="description"/>
-		</div>
-		<div>
-			<label>Rating: </label>
-			<input [(ngModel)]="wine.rating" placeholder="rating"/>
-		</div>
-	</div>
-  `
+	moduleId: module.id,
+  	selector: 'wine-detail',
+  	templateUrl: 'wine-detail.component.html',
+  	styleUrls: ['wine-detail.component.css']
 })
-export class WineDetailComponent {
+
+export class WineDetailComponent implements OnInit {
+	constructor(
+		private wineService: WineService,
+		private route: ActivatedRoute,
+		private location: Location) {}
+
+	ngOnInit(): void {
+  		this.route.params
+    		.switchMap((params: Params) => this.wineService.getWine(params['id']))
+    		.subscribe(wine => this.wine = wine);
+	}
+
+	goBack(): void {
+  		this.location.back();
+	}
+
 	@Input()
 	wine: Wine;
 }

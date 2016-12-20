@@ -1,0 +1,12 @@
+<ul class="heroes">
+	<li *ngFor="let wine of wines" (click)="onSelect(wine)">
+		<span class="badge">{{wine._id}}</span> {{wine.wineName}}
+	</li>
+</ul>
+
+<div *ngIf="selectedWine">
+ 	<h2>
+   		{{selectedWine.wineName | uppercase}} 
+ 	</h2>
+  	<button (click)="gotoDetail()">View Details</button>
+</div>
