@@ -15,7 +15,12 @@ var app = express();
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-
+var setHeader = function (request, response, next) {
+	response.header("Access-Control-Allow-Origin", "*");
+	response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	response.header("Content-Type", "application/json");
+	next();
+}
 
 //Estate routes
 app.get('/estate', estate.getAll);
@@ -33,9 +38,10 @@ app.get('/winetype/:name', winetype.getOne);
 app.post('/winetype', winetype.insert);
 
 //Wine routes
-app.get('/wine', wine.getAll);
+app.get('/wine', [setHeader, wine.getAll]);
 app.get('/wine/:name', wine.getOne);
 app.post('/wine', wine.insert);
+app.delete('/wine', wine.delete);
 
 
 

@@ -31,7 +31,7 @@ export class WinesComponent implements OnInit {
 
   getWines() : void {
   	this.wineService.getWines()
-  		.then(wines => this.wines = wines);
+  		.then(wines => { console.log(wines); this.wines = wines});
   }
 
   gotoDetail() : void {

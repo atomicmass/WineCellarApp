@@ -21,5 +21,10 @@ module.exports =
     });
 
     response.end();
+  },
+
+  delete: function(request, response) {
+    wines.remove(request.body);
+    response.end();
   }
 }
