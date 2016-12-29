@@ -1,17 +1,7 @@
 <ul class="heroes">
 	<li *ngFor="let wine of wines" (click)="onSelect(wine)">
-		<span class="badge">{{wine.estate.estateName}}</span> {{wine.wineName}}
+		<span class="badge">{{wine.estate}}</span> {{wine.wineName}}
 	</li>
 </ul>
 
-<div *ngIf="selectedWine">
- 	<h2>
-   		{{selectedWine.estate.estateName}} - {{selectedWine.wineName}} ({{selectedWine.vintage}})
- 	</h2>
- 	<div class="summary">
- 		Description: {{selectedWine.description}}<br/>
- 		Rating: {{selectedWine.rating}}<br/>
- 		Quantity: {{selectedWine.quantity}}<br/>
- 	</div>
-  	<button (click)="gotoDetail()">View Details</button>
-</div>
+<wine-summary [wine]="selectedWine"></wine-summary>

@@ -1,5 +1,6 @@
 var db = require('../connection').db;
 var wines = db.collection("wines");
+var mongojs = require("mongojs");
 
 module.exports = 
 {
@@ -15,16 +16,27 @@ module.exports =
     });
   },
 
+  search: function(request, response) {
+    wines.find(request.body, function (err, docs) {
+      response.end(JSON.stringify(docs));
+    });
+  },
+
   insert: function(request, response) {
+    if(!request.body._id)
+      request.body._id = String(mongojs.ObjectId());
+    if(isNaN(request.body.quantity) || request.body.quantity < 0)
+      request.body.quantity = 0;
     wines.save(request.body, {}, function (err, docs) {
-      console.log(err);
+      if(err !== null)
+        console.log("Error : " + err);
     });
 
     response.end();
   },
 
   delete: function(request, response) {
-    wines.remove(request.body);
+    wines.remove({"_id" : request.params.id});
     response.end();
   }
-}
+};

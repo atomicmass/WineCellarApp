@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 var express = require('express');
+var cors = require('cors');
 
 var bodyParser = require('body-parser');
 var multer = require('multer'); // v1.0.5
@@ -23,25 +24,33 @@ var setHeader = function (request, response, next) {
 }
 
 //Estate routes
-app.get('/estate', estate.getAll);
-app.get('/estate/:name', estate.getOne);
-app.post('/estate', estate.insert);
+app.options('/estate', cors());
+app.get('/estate', [setHeader, estate.getAll]);
+app.get('/estate/:name', [setHeader, estate.getOne]);
+app.post('/estate', [setHeader, estate.insert]);
 
 //Style routes
-app.get('/style', style.getAll);
-app.get('/style/:name', style.getOne);
-app.post('/style', style.insert);
+app.options('/style', cors());
+app.get('/style', [setHeader, style.getAll]);
+app.get('/style/:name', [setHeader, style.getOne]);
+app.post('/style', [setHeader, style.insert]);
 
 //Winetype routes
-app.get('/winetype', winetype.getAll);
-app.get('/winetype/:name', winetype.getOne);
-app.post('/winetype', winetype.insert);
+app.options('/winetype', cors());
+app.get('/winetype', [setHeader, winetype.getAll]);
+app.get('/winetype/:name', [setHeader, winetype.getOne]);
+app.post('/winetype', [setHeader, winetype.insert]);
 
 //Wine routes
+app.options('/wine', cors());
+app.options('/wine/:id', cors());
 app.get('/wine', [setHeader, wine.getAll]);
-app.get('/wine/:name', wine.getOne);
-app.post('/wine', wine.insert);
-app.delete('/wine', wine.delete);
+app.get('/wine/:name', [setHeader, wine.getOne]);
+app.post('/wine', [setHeader, wine.insert]);
+app.delete('/wine/:id', [setHeader, wine.delete]);
+
+app.options('/wine/search', cors());
+app.post('/wine/search', [setHeader, wine.search]);
 
 
 

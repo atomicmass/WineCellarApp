@@ -1,8 +1,8 @@
 export class Wine {
-	_id:string;
-	estate:Estate;
-	wineType:WineType;
-	style:Style;
+	_id:any;
+	estate:string;
+	wineType:string;
+	style:string;
 	wineName:string;
 	vintage:number;
 	rating:number;
@@ -11,16 +11,16 @@ export class Wine {
 }
 
 export class Estate {
-	_id:string;
+	_id:any;
 	estateName:string;
 }
 
 export class WineType {
-	_id:string;
+	_id:any;
 	wineTypeName:string;
 }
 
 export class Style {
-	_id:string;
+	_id:any;
 	styleName:string;
 }

@@ -16,10 +16,12 @@ module.exports =
   },
 
     insert: function(request, response) {
+      if(!request.body._id)
+        request.body._id = String(mongojs.ObjectId());
       wineTypes.save(request.body, {}, function (err, docs) {
         console.log(err);
     });
 
     response.end();
   }
-}
+};

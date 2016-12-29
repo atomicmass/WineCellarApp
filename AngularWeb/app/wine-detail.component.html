@@ -1,30 +1,47 @@
 <div *ngIf="wine">
-	<h2>{{wine.estate.estateName}} {{wine.wineName}} {{wine.vintage}}</h2>
-	<div>
-		<label>Name:</label>
-		<input [(ngModel)]="wine.wineName" placeholder="wine name"/>
-	</div>
-	<div>
-		<label>Estate: </label>
-		<input [(ngModel)]="wine.estate.estateName" placeholder="estate name"/>
-	</div>
-	<div>
-		<label>Type: </label>
-		<input [(ngModel)]="wine.wineType.wineTypeName" placeholder="type"/>
-	</div>
-	<div>
-		<label>Vintage: </label>
-		<input [(ngModel)]="wine.vintage" placeholder="vintage"/>
-	</div>
-	<div>
-		<label>Description: </label>
-		<input [(ngModel)]="wine.description" placeholder="description"/>
-	</div>
-	<div>
-		<label>Rating: </label>
-		<input [(ngModel)]="wine.rating" placeholder="rating"/>
-	</div>
-	<button (click)="goBack()">Back</button>
+	<form>
+		<h2>{{wine.estate}} {{wine.wineName}} {{wine.vintage}}</h2>
+		<div>
+			<label>Name:</label>
+			<input [(ngModel)]="wine.wineName" placeholder="wine name" name="wineName"/>
+		</div>
+		<div>
+			<label>Estate: </label>
+			<select [(ngModel)]="wine.estate" name="estate">
+				<option *ngFor="let estate of estates" [value]="estate.estateName">{{estate.estateName}}</option>
+			</select>
+		</div>
+		<div>
+			<label>Type: </label>
+			<select [(ngModel)]="wine.wineType" name="wineType">
+				<option *ngFor="let type of types" [value]="type.wineTypeName">{{type.wineTypeName}}</option>
+			</select>
+		</div>
+		<div>
+			<label>Style: </label>
+			<select [(ngModel)]="wine.style" name="style">
+				<option *ngFor="let style of styles" [value]="style.styleName">{{style.styleName}}</option>
+			</select>
+		</div>
+		<div>
+			<label>Vintage: </label>
+			<input [(ngModel)]="wine.vintage" placeholder="vintage" name="vintage" class="vintage"/>
+		</div>
+		<div>
+			<label>Description: </label>
+			<input [(ngModel)]="wine.description" placeholder="description" name="description"/>
+		</div>
+		<div>
+			<label>Rating: </label>
+			<input [(ngModel)]="wine.rating" placeholder="rating" name="rating" class="rating"/>
+		</div>
+		<div>
+			<label>Quantity: </label>
+			<input [(ngModel)]="wine.quantity" placeholder="quantity" name="quantity" class="quantity"/>
+		</div>
+		<button (click)="goBack()">Back</button>
+		<button (click)="save()">Save</button>
+	</form>
 </div>
 
 

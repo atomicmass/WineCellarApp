@@ -1,0 +1,11 @@
+<div >
+	<span *ngFor="let estate of estates" (click)="onSelect(estate)" class="estate">{{estate.estateName}}</span>
+</div>
+
+<ul class="heroes">
+	<li *ngFor="let wine of wines" (click)="onWineSelect(wine)">
+		<span class="badge">{{wine.estate}}</span> {{wine.wineName}}
+	</li>
+</ul>
+
+<wine-summary [wine]="selectedWine"></wine-summary>

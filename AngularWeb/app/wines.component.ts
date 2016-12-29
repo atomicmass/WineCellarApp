@@ -31,10 +31,6 @@ export class WinesComponent implements OnInit {
 
   getWines() : void {
   	this.wineService.getWines()
-  		.then(wines => { console.log(wines); this.wines = wines});
-  }
-
-  gotoDetail() : void {
-    this.router.navigate(['/detail', this.selectedWine._id])
+  		.then(wines => { this.wines = wines });
   }
 }
