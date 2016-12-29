@@ -25,7 +25,7 @@ export class WineSummaryComponent implements OnInit {
 	ngOnInit(): void {}
 	
 	gotoDetail() : void {
-    	this.router.navigate(['/detail', this.wine._id])
+    	this.router.navigate(['/detail', this.wine._id]);
   	}
 
   	drink() : void {
@@ -38,5 +38,6 @@ export class WineSummaryComponent implements OnInit {
 
   	delete() : void {
     	this.wineService.delete(this.wine);
+    	this.wine = null;
   	}
 }

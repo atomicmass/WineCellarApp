@@ -54,6 +54,7 @@ export class WineDetailComponent implements OnInit {
 
 	save(): void {
   		this.wineService.saveWine(this.wine);
+  		this.router.navigate(['/wines']);
 	}
 
 	
