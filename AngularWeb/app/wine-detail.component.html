@@ -39,6 +39,10 @@
 			<label>Quantity: </label>
 			<input [(ngModel)]="wine.quantity" placeholder="quantity" name="quantity" class="quantity"/>
 		</div>
+		<image-upload (onFileUploadFinish)="imageUploaded($event)"></image-upload>
+
+
+
 		<button (click)="goBack()">Back</button>
 		<button (click)="save()" type="button">Save</button>
 	</form>

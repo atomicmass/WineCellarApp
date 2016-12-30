@@ -8,6 +8,7 @@ export class Wine {
 	rating:number;
 	description:string;
 	quantity:number;
+	image:File;
 }
 
 export class Estate {

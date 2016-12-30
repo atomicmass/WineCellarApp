@@ -1,6 +1,9 @@
 var db = require('../connection').db;
 var wines = db.collection("wines");
+var images = db.collection("images");
 var mongojs = require("mongojs");
+var fs = require('fs');
+
 
 module.exports = 
 {
@@ -33,6 +36,27 @@ module.exports =
     });
 
     response.end();
+  },
+
+  saveImage: function(request, response) {
+    var bodyarr = [];
+    request.on('data', function(chunk){
+      bodyarr.push(chunk);
+    });
+
+    request.on('end', function(){
+      fs.writeFile("/temp/test", bodyarr.join(''), function(err) {
+        if(err) {
+          return console.log(err);
+        }
+
+        console.log("The file was saved!");
+      }); 
+
+      response.end();
+    });
+
+    
   },
 
   delete: function(request, response) {

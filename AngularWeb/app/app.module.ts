@@ -12,12 +12,15 @@ import { EstatesComponent } from './estates.component';
 import { DashboardComponent } from './dashboard.component';
 import { WineService } from './wine.service';
 
+import { ImageUploadModule } from 'angular2-image-upload';
+
 @NgModule({
   imports:      [ 
   	BrowserModule,
   	FormsModule,
   	AppRoutingModule,
-    HttpModule
+    HttpModule,
+    ImageUploadModule.forRoot()
   ],
   declarations: [ 
   	AppComponent,

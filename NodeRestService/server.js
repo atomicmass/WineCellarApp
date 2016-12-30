@@ -23,6 +23,15 @@ var setHeader = function (request, response, next) {
 	next();
 }
 
+
+var setImageHeader = function (request, response, next) {
+	response.header("Access-Control-Allow-Origin", "*");
+	response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	response.header("Content-Type", "application/bas64");
+	app.use(bodyParser.raw());
+	next();
+}
+
 //Estate routes
 app.options('/estate', cors());
 app.get('/estate', [setHeader, estate.getAll]);
@@ -51,6 +60,9 @@ app.delete('/wine/:id', [setHeader, wine.delete]);
 
 app.options('/wine/search', cors());
 app.post('/wine/search', [setHeader, wine.search]);
+
+app.options('/wine/image', cors());
+app.post('/wine/image', [setImageHeader, wine.saveImage]);
 
 
 

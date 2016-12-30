@@ -57,5 +57,15 @@ export class WineDetailComponent implements OnInit {
   		this.router.navigate(['/wines']);
 	}
 
+	imageUploaded(event: any) : void {
+		var fileReader = new FileReader();
+		fileReader.onloadend = e => {
+      		// you can perform an action with readed data here
+      		this.wineService.saveImage(Base64.encode(fileReader.result));
+    	}
+
+    	fileReader.readAsText(event.file);
+	}
+
 	
 }

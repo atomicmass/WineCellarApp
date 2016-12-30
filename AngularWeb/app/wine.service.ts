@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http, RequestOptions } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -9,6 +9,7 @@ import { Wine, Estate, WineType, Style } from './wine'
 export class WineService {
 
 	private winesUrl = 'http://localhost:8081/wine'; 
+	private wineImagesUrl = 'http://localhost:8081/wine/image'; 
 	private estatesUrl = 'http://localhost:8081/estate';
 	private typesUrl = 'http://localhost:8081/winetype';
 	private stylesUrl = 'http://localhost:8081/style';
@@ -48,12 +49,12 @@ export class WineService {
 
 	delete(wine: Wine): void {
 		this.http.delete(this.winesUrl + '/' + wine._id).toPromise()
-               .catch(this.handleError);;
+               .catch(this.handleError);
 	}
 
 	saveWine(wine: Wine): void {
 		this.http.post(this.winesUrl, wine).toPromise()
-               .catch(this.handleError);;
+               .catch(this.handleError);
 	}
 
 	searchWines(search: string): Promise<Wine[]> {
@@ -81,6 +82,13 @@ export class WineService {
 		return this.http.get(this.stylesUrl)
                .toPromise()
                .then(response => response.json() as Style[])
+               .catch(this.handleError);
+	}
+
+	saveImage(data : any) {
+		let headers = new Headers({ 'Content-Type': 'image/png' });
+		let options = new RequestOptions({ headers: headers });
+		this.http.post(this.wineImagesUrl, data, options).toPromise()
                .catch(this.handleError);
 	}
 
