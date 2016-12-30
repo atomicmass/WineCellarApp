@@ -1,7 +1,8 @@
+"use strict";
 var db = require('../connection').db;
 var estates = db.collection("estates");
 
-module.exports = 
+module.exports =
 {
 	getAll: function (request, response) {
 		estates.find(function (err, docs) {

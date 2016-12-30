@@ -1,17 +1,25 @@
 <div *ngIf="wine">
-	
+
 	<div class="summary">
-	<h2>
-   		{{wine.estate}} - {{wine.wineName}} ({{wine.vintage}})
- 	</h2>
-		Description: {{wine.description}}<br/>
-		Rating: {{wine.rating}}<br/>
-		Quantity: {{wine.quantity}}<br/>
-	
+		<table>
+			<tr>
+				<td>
+
+					<h2>
+						{{wine.estate}} - {{wine.wineName}} ({{wine.vintage}})
+					</h2>
+					Description: {{wine.description}}<br/>
+					Rating: {{wine.rating}}<br/>
+					Quantity: {{wine.quantity}}<br/>
+				</td>
+				<td>
+					<img src="{{wineImage}}" class="wineImage">
+				</td>
+			</tr>
+		</table>
 	</div>
 	<button (click)="drink()">Drink</button>
 	<button (click)="buy()">Buy</button>
 	<button (click)="delete()">Delete</button>
 	<button (click)="gotoDetail()">View Details</button>
 </div>
-

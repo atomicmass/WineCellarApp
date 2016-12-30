@@ -1,7 +1,8 @@
+"use strict";
 var db = require('../connection').db;
 var styles = db.collection("styles");
 
-module.exports = 
+module.exports =
 {
   getAll: function (request, response) {
     styles.find(function (err, docs) {

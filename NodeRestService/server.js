@@ -23,12 +23,9 @@ var setHeader = function (request, response, next) {
 	next();
 }
 
-
-var setImageHeader = function (request, response, next) {
+var setCorsHeader = function (request, response, next) {
 	response.header("Access-Control-Allow-Origin", "*");
 	response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-	response.header("Content-Type", "application/bas64");
-	app.use(bodyParser.raw());
 	next();
 }
 
@@ -62,7 +59,8 @@ app.options('/wine/search', cors());
 app.post('/wine/search', [setHeader, wine.search]);
 
 app.options('/wine/image', cors());
-app.post('/wine/image', [setImageHeader, wine.saveImage]);
+app.post('/wine/image', [setHeader, wine.saveImage]);
+app.get('/wine/image/:fileName', [setCorsHeader, wine.getImage]);
 
 
 
@@ -72,5 +70,3 @@ var server = app.listen(process.env.Port, function () {
   var port = server.address().port;
   console.log("Rest service listening at http://%s:%s", host, port);
 })
-
-

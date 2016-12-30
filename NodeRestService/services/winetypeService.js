@@ -1,7 +1,8 @@
+"use strict";
 var db = require('../connection').db;
 var wineTypes = db.collection("wineTypes");
 
-module.exports = 
+module.exports =
 {
   getAll: function (request, response) {
     wineTypes.find(function (err, docs) {

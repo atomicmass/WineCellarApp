@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router }   from '@angular/router';
-import { Location }                 from '@angular/common';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 import 'rxjs/add/operator/switchMap';
 
@@ -27,16 +27,26 @@ export class WineDetailComponent implements OnInit {
 	@Input()
 	styles: Style[];
 
+	@Input()
+	wineImage: string;
+
 	constructor(
 		private wineService: WineService,
 		private route: ActivatedRoute,
 		private location: Location,
-    	private router: Router) {}
+    private router: Router) {}
 
 	ngOnInit(): void {
   		this.route.params
     		.switchMap((params: Params) => this.wineService.getWine(params['id']))
-    		.subscribe(wine => this.wine = wine);
+    		.subscribe(wine => {
+					this.wine = wine;
+					if(this.wine.fileName != null) {
+						this.wineImage = this.wineService.wineImagesUrl + "/" + this.wine.fileName;
+					}
+				});
+
+
 
     	this.wineService.getEstates()
     		.then(estates => this.estates = estates);
@@ -60,12 +70,12 @@ export class WineDetailComponent implements OnInit {
 	imageUploaded(event: any) : void {
 		var fileReader = new FileReader();
 		fileReader.onloadend = e => {
-      		// you can perform an action with readed data here
-      		this.wineService.saveImage(Base64.encode(fileReader.result));
+      		this.wineService.saveImage(fileReader.result)
+						.then(fileName => this.wine.fileName = fileName.fileName);
     	}
 
-    	fileReader.readAsText(event.file);
+    	fileReader.readAsDataURL(event.file);
 	}
 
-	
+
 }

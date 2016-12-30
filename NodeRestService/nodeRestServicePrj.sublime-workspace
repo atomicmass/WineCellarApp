@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"inde",
+				"indexOf"
+			],
+			[
+				"base",
+				"base64Data"
+			],
+			[
 				"sel",
 				"selectedWine"
 			],
@@ -32,7 +40,7 @@
 			"file": "/D/git/Personal/WineCellarApp/AngularWeb/app/wine-detail.component.ts",
 			"settings":
 			{
-				"buffer_size": 1358,
+				"buffer_size": 1614,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -41,7 +49,7 @@
 			"file": "/D/git/Personal/WineCellarApp/AngularWeb/app/wine-detail.component.html",
 			"settings":
 			{
-				"buffer_size": 1496,
+				"buffer_size": 1576,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -68,7 +76,7 @@
 			"file": "/D/git/Personal/WineCellarApp/AngularWeb/app/wine.ts",
 			"settings":
 			{
-				"buffer_size": 338,
+				"buffer_size": 351,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -122,7 +130,7 @@
 			"file": "/D/git/Personal/WineCellarApp/AngularWeb/styles.css",
 			"settings":
 			{
-				"buffer_size": 3397,
+				"buffer_size": 3403,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -149,18 +157,23 @@
 			"file": "/D/git/Personal/WineCellarApp/AngularWeb/app/app.module.ts",
 			"settings":
 			{
-				"buffer_size": 1002,
+				"buffer_size": 1095,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "/**\n * System configuration for Angular samples\n * Adjust as necessary for your application needs.\n */\n(function (global) {\n  System.config({\n    paths: {\n      // paths serve as alias\n      'npm:': 'node_modules/'\n    },\n    // map tells the System loader where to look for things\n    map: {\n      // our app is within the app folder\n      app: 'app',\n\n      // angular bundles\n      '@angular/core': 'npm:@angular/core/bundles/core.umd.js',\n      '@angular/common': 'npm:@angular/common/bundles/common.umd.js',\n      '@angular/compiler': 'npm:@angular/compiler/bundles/compiler.umd.js',\n      '@angular/platform-browser': 'npm:@angular/platform-browser/bundles/platform-browser.umd.js',\n      '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',\n      '@angular/http': 'npm:@angular/http/bundles/http.umd.js',\n      '@angular/router': 'npm:@angular/router/bundles/router.umd.js',\n      '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',\n\n      // other libraries\n      'rxjs':                      'npm:rxjs',\n      'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',\n      'angular2-image-upload': 'npm:angular2-image-upload',\n    },\n    // packages tells the System loader how to load when no filename and/or no extension\n    packages: {\n      app: {\n        main: './main.js',\n        defaultExtension: 'js'\n      },\n      rxjs: {\n        defaultExtension: 'js'\n      }\n    }\n  });\n})(this);\n",
-			"file": "/D/git/Personal/WineCellarApp/AngularWeb/systemjs.config.js",
-			"file_size": 1495,
-			"file_write_time": 131274882454100298,
+			"file": "/D/git/Personal/WineCellarApp/AngularWeb/node_modules/angular2-image-upload/index.js",
 			"settings":
 			{
-				"buffer_size": 1515,
+				"buffer_size": 84,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/D/git/Personal/WineCellarApp/AngularWeb/systemjs.config.js",
+			"settings":
+			{
+				"buffer_size": 1620,
 				"line_ending": "Windows"
 			}
 		},
@@ -194,7 +207,7 @@
 			"file": "/D/git/Personal/WineCellarApp/AngularWeb/app/wine.service.ts",
 			"settings":
 			{
-				"buffer_size": 2437,
+				"buffer_size": 2767,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -203,7 +216,7 @@
 			"file": "services/wineService.js",
 			"settings":
 			{
-				"buffer_size": 1070,
+				"buffer_size": 1809,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -212,7 +225,7 @@
 			"file": "server.js",
 			"settings":
 			{
-				"buffer_size": 2082,
+				"buffer_size": 2486,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -300,7 +313,11 @@
 	},
 	"file_history":
 	[
+		"/D/git/Personal/WineCellarApp/AngularWeb/node_modules/angular2-image-upload/lib/image-upload/image-upload.component.js",
+		"/D/git/Personal/WineCellarApp/AngularWeb/node_modules/angular2-image-upload/lib/image-upload.module.js",
 		"/D/git/Personal/WineCellarApp/AngularWeb/node_modules/angular2-image-upload/lib/image.service.js",
+		"/D/git/Personal/WineCellarApp/AngularWeb/node_modules/angular2-image-upload/lib/image-upload.module.d.ts",
+		"/D/git/Personal/WineCellarApp/AngularWeb/node_modules/angular2-image-upload/lib/image-upload/image-upload.component.d.ts",
 		"/D/git/Personal/WineCellarApp/AngularWeb/index.html",
 		"/D/git/Personal/WineCellarApp/AngularWeb/app/app.module.ts",
 		"/D/git/Personal/WineCellarApp/NodeRestService/models/wine.js",
@@ -392,6 +409,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"FileReader",
 			"angular2-image-upload",
 			"quant",
 			"cursor",
@@ -443,7 +461,7 @@
 	"groups":
 	[
 		{
-			"selected": 15,
+			"selected": 21,
 			"sheets":
 			[
 				{
@@ -473,7 +491,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
+					"stack_index": 21,
 					"type": "text"
 				},
 				{
@@ -482,15 +500,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1358,
+						"buffer_size": 1614,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								484,
-								484
+								1500,
+								1500
 							]
 						],
 						"settings":
@@ -499,10 +517,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 842.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -511,15 +529,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1496,
+						"buffer_size": 1576,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1411,
-								1411
+								1457,
+								1457
 							]
 						],
 						"settings":
@@ -528,10 +546,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 600.0,
+						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -556,10 +574,10 @@
 							"syntax": "Packages/ActionScript/ActionScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 200.0,
+						"translation.y": 68.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -587,7 +605,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
@@ -596,15 +614,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 338,
+						"buffer_size": 351,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								31,
-								37
+								351,
+								351
 							]
 						],
 						"settings":
@@ -616,7 +634,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 22,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -644,7 +662,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 19,
+					"stack_index": 22,
 					"type": "text"
 				},
 				{
@@ -674,7 +692,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 21,
+					"stack_index": 23,
 					"type": "text"
 				},
 				{
@@ -704,7 +722,7 @@
 						"translation.y": 228.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
@@ -732,7 +750,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
@@ -762,7 +780,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
@@ -771,15 +789,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3397,
+						"buffer_size": 3403,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2108,
-								2108
+								3403,
+								3403
 							]
 						],
 						"settings":
@@ -789,10 +807,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1902.0,
+						"translation.y": 3524.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 20,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -820,7 +838,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
@@ -848,7 +866,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 19,
 					"type": "text"
 				},
 				{
@@ -857,15 +875,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1002,
+						"buffer_size": 1095,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								684,
-								705
+								709,
+								709
 							]
 						],
 						"settings":
@@ -878,24 +896,52 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 15,
-					"file": "/D/git/Personal/WineCellarApp/AngularWeb/systemjs.config.js",
+					"file": "/D/git/Personal/WineCellarApp/AngularWeb/node_modules/angular2-image-upload/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1515,
+						"buffer_size": 84,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1247,
-								1247
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "/D/git/Personal/WineCellarApp/AngularWeb/systemjs.config.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1620,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1603,
+								1603
 							]
 						],
 						"settings":
@@ -905,14 +951,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 100.0,
+						"translation.y": 400.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 16,
+					"buffer": 17,
 					"file": "/D/git/Personal/WineCellarApp/AngularWeb/index.html",
 					"semi_transient": false,
 					"settings":
@@ -938,11 +984,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 17,
+					"buffer": 18,
 					"file": "/D/git/Personal/WineCellarApp/AngularWeb/app/app.component.ts",
 					"semi_transient": false,
 					"settings":
@@ -968,11 +1014,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 18,
+					"buffer": 19,
 					"file": "/D/git/Personal/WineCellarApp/AngularWeb/app/app-routing.module.ts",
 					"semi_transient": false,
 					"settings":
@@ -996,24 +1042,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
-					"buffer": 19,
+					"buffer": 20,
 					"file": "/D/git/Personal/WineCellarApp/AngularWeb/app/wine.service.ts",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2437,
+						"buffer_size": 2767,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1407,
-								1407
+								2433,
+								2442
 							]
 						],
 						"settings":
@@ -1021,27 +1067,27 @@
 							"syntax": "Packages/ActionScript/ActionScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 604.0,
+						"translation.y": 1400.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 16,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 20,
+					"buffer": 21,
 					"file": "services/wineService.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1070,
+						"buffer_size": 1809,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								528,
-								528
+								19,
+								57
 							]
 						],
 						"settings":
@@ -1051,27 +1097,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 200.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 21,
+					"buffer": 22,
 					"file": "server.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2082,
+						"buffer_size": 2486,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1563,
-								1563
+								998,
+								998
 							]
 						],
 						"settings":
@@ -1079,14 +1125,14 @@
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 400.0,
+						"translation.y": 1000.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 22,
+					"buffer": 23,
 					"file": "services/estateService.js",
 					"semi_transient": false,
 					"settings":
@@ -1110,11 +1156,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 24,
+					"stack_index": 25,
 					"type": "text"
 				},
 				{
-					"buffer": 23,
+					"buffer": 24,
 					"file": "services/styleService.js",
 					"semi_transient": false,
 					"settings":
@@ -1140,11 +1186,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 23,
+					"stack_index": 24,
 					"type": "text"
 				},
 				{
-					"buffer": 24,
+					"buffer": 25,
 					"file": "services/winetypeService.js",
 					"semi_transient": false,
 					"settings":
@@ -1170,7 +1216,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 20,
 					"type": "text"
 				}
 			]

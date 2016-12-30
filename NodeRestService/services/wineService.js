@@ -1,11 +1,13 @@
-var db = require('../connection').db;
-var wines = db.collection("wines");
-var images = db.collection("images");
-var mongojs = require("mongojs");
-var fs = require('fs');
+"use strict";
 
+let db = require('../connection').db;
+let wines = db.collection("wines");
+let images = db.collection("images");
+let mongojs = require("mongojs");
+let fs = require('fs');
+let imageFolder = "D:\\temp\\";
 
-module.exports = 
+module.exports =
 {
   getAll: function (request, response) {
     wines.find(function (err, docs) {
@@ -39,24 +41,53 @@ module.exports =
   },
 
   saveImage: function(request, response) {
-    var bodyarr = [];
-    request.on('data', function(chunk){
+    let bodyarr = [];
+
+    request.on('data', function(chunk) {
       bodyarr.push(chunk);
     });
 
-    request.on('end', function(){
-      fs.writeFile("/temp/test", bodyarr.join(''), function(err) {
+    request.on('end', function() {
+      let img = bodyarr.join('');
+
+      let index = img.indexOf("base64,") + 7;
+      let format = img.substring(0, index);
+      let base64Data = img.replace(format, "");
+      let id = String(mongojs.ObjectId());
+      format = format.substring(format.indexOf("/")+1, format.indexOf(";"));
+      let fileName = id + "." + format;
+
+      fs.writeFile(imageFolder + fileName,
+        base64Data, 'base64', function(err) {
         if(err) {
-          return console.log(err);
+          console.log(err);
         }
+      });
 
-        console.log("The file was saved!");
-      }); 
-
-      response.end();
+      response.end(JSON.stringify({'fileName' : fileName}));
     });
 
-    
+  },
+
+  getImage: function(request, response) {
+    console.log(imageFolder + request.params.fileName);
+
+    var options = {
+      root: imageFolder,
+      dotfiles: 'deny',
+      headers: {
+        'x-timestamp': Date.now(),
+        'x-sent': true
+      }
+    };
+
+    response.sendFile(request.params.fileName, options, function (err) {
+      if (err) {
+        console.log(err);
+        response.status(err.status).end();
+      }
+      response.end();
+    });
   },
 
   delete: function(request, response) {

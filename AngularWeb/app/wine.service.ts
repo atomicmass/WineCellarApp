@@ -8,12 +8,12 @@ import { Wine, Estate, WineType, Style } from './wine'
 @Injectable()
 export class WineService {
 
-	private winesUrl = 'http://localhost:8081/wine'; 
-	private wineImagesUrl = 'http://localhost:8081/wine/image'; 
-	private estatesUrl = 'http://localhost:8081/estate';
-	private typesUrl = 'http://localhost:8081/winetype';
-	private stylesUrl = 'http://localhost:8081/style';
-	private winesSearchUrl = 'http://localhost:8081/wine/search'; 
+	public winesUrl = 'http://localhost:8081/wine';
+	public wineImagesUrl = 'http://localhost:8081/wine/image';
+	public estatesUrl = 'http://localhost:8081/estate';
+	public typesUrl = 'http://localhost:8081/winetype';
+	public stylesUrl = 'http://localhost:8081/style';
+	public winesSearchUrl = 'http://localhost:8081/wine/search';
 
 	constructor(private http: Http) { }
 
@@ -85,11 +85,13 @@ export class WineService {
                .catch(this.handleError);
 	}
 
-	saveImage(data : any) {
+	saveImage(data : any) : Promise<any> {
 		let headers = new Headers({ 'Content-Type': 'image/png' });
 		let options = new RequestOptions({ headers: headers });
-		this.http.post(this.wineImagesUrl, data, options).toPromise()
-               .catch(this.handleError);
+		return this.http.post(this.wineImagesUrl, data, options)
+			.toPromise()
+			.then(response => response.json() as any)
+      .catch(this.handleError);
 	}
 
 	private handleError(error: any): Promise<any> {
